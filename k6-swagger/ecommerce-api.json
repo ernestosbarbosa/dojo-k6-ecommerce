@@ -1,0 +1,2987 @@
+{
+    "openapi": "3.0.0",
+    "paths": {
+        "/api/users": {
+            "post": {
+                "operationId": "UserController_create",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserCreateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "get": {
+                "operationId": "UserController_findMany",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/UserWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/User"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/users/{id}": {
+            "get": {
+                "operationId": "UserController_findOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "UserController_update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/UserUpdateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "UserController_delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/User"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "users"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/login": {
+            "post": {
+                "operationId": "AuthController_login",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Credentials"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "auth"
+                ]
+            }
+        },
+        "/api/orders": {
+            "post": {
+                "operationId": "OrderController_create",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OrderCreateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "orders"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "get": {
+                "operationId": "OrderController_findMany",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/OrderWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Order"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "orders"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/orders/{id}": {
+            "get": {
+                "operationId": "OrderController_findOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "orders"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "OrderController_update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/OrderUpdateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "orders"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "OrderController_delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Order"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "orders"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/customers": {
+            "post": {
+                "operationId": "CustomerController_create",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CustomerCreateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customer"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "get": {
+                "operationId": "CustomerController_findMany",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/CustomerWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Customer"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/customers/{id}": {
+            "get": {
+                "operationId": "CustomerController_findOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customer"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "CustomerController_update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CustomerUpdateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customer"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "CustomerController_delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Customer"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/customers/{id}/orders": {
+            "get": {
+                "operationId": "CustomerController_findManyOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/OrderWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "operationId": "CustomerController_connectOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "CustomerController_updateOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "CustomerController_disconnectOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "customers"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/addresses": {
+            "post": {
+                "operationId": "AddressController_create",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddressCreateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "get": {
+                "operationId": "AddressController_findMany",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/AddressWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Address"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/addresses/{id}": {
+            "get": {
+                "operationId": "AddressController_findOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "AddressController_update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/AddressUpdateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "AddressController_delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Address"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/addresses/{id}/customers": {
+            "get": {
+                "operationId": "AddressController_findManyCustomers",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/CustomerWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "operationId": "AddressController_connectCustomers",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "AddressController_updateCustomers",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "AddressController_disconnectCustomers",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "addresses"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/products": {
+            "post": {
+                "operationId": "ProductController_create",
+                "parameters": [],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProductCreateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "get": {
+                "operationId": "ProductController_findMany",
+                "parameters": [
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/ProductWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Product"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/products/{id}": {
+            "get": {
+                "operationId": "ProductController_findOne",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "ProductController_update",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/ProductUpdateInput"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "ProductController_delete",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Product"
+                                }
+                            }
+                        }
+                    },
+                    "403": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ForbiddenException"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/NotFoundException"
+                                }
+                            }
+                        }
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/products/{id}/orders": {
+            "get": {
+                "operationId": "ProductController_findManyOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "where",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/OrderWhereInput"
+                        }
+                    },
+                    {
+                        "name": "orderBy",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "$ref": "#/components/schemas/Array"
+                        }
+                    },
+                    {
+                        "name": "skip",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    },
+                    {
+                        "name": "take",
+                        "required": false,
+                        "in": "query",
+                        "style": "deepObject",
+                        "explode": true,
+                        "schema": {
+                            "type": "number"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "post": {
+                "operationId": "ProductController_connectOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "patch": {
+                "operationId": "ProductController_updateOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            },
+            "delete": {
+                "operationId": "ProductController_disconnectOrders",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "required": true,
+                        "in": "path",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                },
+                "tags": [
+                    "products"
+                ],
+                "security": [
+                    {
+                        "bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/_health/live": {
+            "get": {
+                "operationId": "HealthController_healthLive",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/api/_health/ready": {
+            "get": {
+                "operationId": "HealthController_healthReady",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "info": {
+        "title": "Dojo K6 Ecommerce",
+        "description": "Ecommerce utilizado no Dojo\n\n## Congratulations! Your application is ready.\n  \nPlease note that all endpoints are secured with JWT Bearer authentication.\nBy default, your app comes with one user with the username \"admin\" and password \"admin\".",
+        "version": "0.1",
+        "contact": {}
+    },
+    "tags": [],
+    "servers": [],
+    "components": {
+        "securitySchemes": {
+            "bearer": {
+                "scheme": "bearer",
+                "bearerFormat": "JWT",
+                "type": "http"
+            }
+        },
+        "schemas": {
+            "UserCreateInput": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "password",
+                    "roles",
+                    "username"
+                ]
+            },
+            "User": {
+                "type": "object",
+                "properties": {
+                    "createdAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdAt",
+                    "id",
+                    "roles",
+                    "updatedAt",
+                    "username"
+                ]
+            },
+            "ForbiddenException": {
+                "type": "object",
+                "properties": {
+                    "statusCode": {
+                        "type": "number"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "statusCode",
+                    "message"
+                ]
+            },
+            "StringNullableFilter": {
+                "type": "object",
+                "properties": {
+                    "equals": {
+                        "type": "string"
+                    },
+                    "in": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "notIn": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "lt": {
+                        "type": "string"
+                    },
+                    "lte": {
+                        "type": "string"
+                    },
+                    "gt": {
+                        "type": "string"
+                    },
+                    "gte": {
+                        "type": "string"
+                    },
+                    "contains": {
+                        "type": "string"
+                    },
+                    "startsWith": {
+                        "type": "string"
+                    },
+                    "endsWith": {
+                        "type": "string"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "enum": [
+                            "Default",
+                            "Insensitive"
+                        ]
+                    },
+                    "not": {
+                        "type": "string"
+                    }
+                }
+            },
+            "StringFilter": {
+                "type": "object",
+                "properties": {
+                    "equals": {
+                        "type": "string"
+                    },
+                    "in": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "notIn": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "lt": {
+                        "type": "string"
+                    },
+                    "lte": {
+                        "type": "string"
+                    },
+                    "gt": {
+                        "type": "string"
+                    },
+                    "gte": {
+                        "type": "string"
+                    },
+                    "contains": {
+                        "type": "string"
+                    },
+                    "startsWith": {
+                        "type": "string"
+                    },
+                    "endsWith": {
+                        "type": "string"
+                    },
+                    "mode": {
+                        "type": "string",
+                        "enum": [
+                            "Default",
+                            "Insensitive"
+                        ]
+                    },
+                    "not": {
+                        "type": "string"
+                    }
+                }
+            },
+            "UserWhereInput": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "id": {
+                        "$ref": "#/components/schemas/StringFilter"
+                    },
+                    "lastName": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "username": {
+                        "$ref": "#/components/schemas/StringFilter"
+                    }
+                }
+            },
+            "Array": {
+                "type": "object",
+                "properties": {}
+            },
+            "Number": {
+                "type": "object",
+                "properties": {}
+            },
+            "NotFoundException": {
+                "type": "object",
+                "properties": {
+                    "statusCode": {
+                        "type": "number"
+                    },
+                    "message": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "statusCode",
+                    "message"
+                ]
+            },
+            "UserUpdateInput": {
+                "type": "object",
+                "properties": {
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    },
+                    "roles": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "username": {
+                        "type": "string"
+                    }
+                }
+            },
+            "Credentials": {
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type": "string"
+                    },
+                    "password": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "username",
+                    "password"
+                ]
+            },
+            "CustomerWhereUniqueInput": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "ProductWhereUniqueInput": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "OrderCreateInput": {
+                "type": "object",
+                "properties": {
+                    "customer": {
+                        "$ref": "#/components/schemas/CustomerWhereUniqueInput"
+                    },
+                    "discount": {
+                        "type": "number"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/ProductWhereUniqueInput"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    },
+                    "totalPrice": {
+                        "type": "number"
+                    }
+                }
+            },
+            "Address": {
+                "type": "object",
+                "properties": {
+                    "address_1": {
+                        "type": "string"
+                    },
+                    "address_2": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "createdAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "customers": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Customer"
+                        }
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "zip": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                    "createdAt",
+                    "id",
+                    "updatedAt"
+                ]
+            },
+            "Product": {
+                "type": "object",
+                "properties": {
+                    "createdAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "itemPrice": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "orders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Order"
+                        }
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdAt",
+                    "id",
+                    "updatedAt"
+                ]
+            },
+            "Order": {
+                "type": "object",
+                "properties": {
+                    "createdAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "customer": {
+                        "$ref": "#/components/schemas/Customer"
+                    },
+                    "discount": {
+                        "type": "number"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/Product"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    },
+                    "totalPrice": {
+                        "type": "number"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdAt",
+                    "id",
+                    "updatedAt"
+                ]
+            },
+            "Customer": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/Address"
+                    },
+                    "createdAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "id": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "orders": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/Order"
+                        }
+                    },
+                    "phone": {
+                        "type": "string"
+                    },
+                    "updatedAt": {
+                        "format": "date-time",
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "createdAt",
+                    "id",
+                    "updatedAt"
+                ]
+            },
+            "FloatNullableFilter": {
+                "type": "object",
+                "properties": {
+                    "equals": {
+                        "type": "number"
+                    },
+                    "in": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "notIn": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "lt": {
+                        "type": "number"
+                    },
+                    "lte": {
+                        "type": "number"
+                    },
+                    "gt": {
+                        "type": "number"
+                    },
+                    "gte": {
+                        "type": "number"
+                    },
+                    "not": {
+                        "type": "number"
+                    }
+                }
+            },
+            "IntNullableFilter": {
+                "type": "object",
+                "properties": {
+                    "equals": {
+                        "type": "number"
+                    },
+                    "in": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "notIn": {
+                        "type": "array",
+                        "items": {
+                            "type": "number"
+                        }
+                    },
+                    "lt": {
+                        "type": "number"
+                    },
+                    "lte": {
+                        "type": "number"
+                    },
+                    "gt": {
+                        "type": "number"
+                    },
+                    "gte": {
+                        "type": "number"
+                    },
+                    "not": {
+                        "type": "number"
+                    }
+                }
+            },
+            "OrderWhereInput": {
+                "type": "object",
+                "properties": {
+                    "customer": {
+                        "$ref": "#/components/schemas/CustomerWhereUniqueInput"
+                    },
+                    "discount": {
+                        "$ref": "#/components/schemas/FloatNullableFilter"
+                    },
+                    "id": {
+                        "$ref": "#/components/schemas/StringFilter"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/ProductWhereUniqueInput"
+                    },
+                    "quantity": {
+                        "$ref": "#/components/schemas/IntNullableFilter"
+                    },
+                    "totalPrice": {
+                        "$ref": "#/components/schemas/IntNullableFilter"
+                    }
+                }
+            },
+            "OrderUpdateInput": {
+                "type": "object",
+                "properties": {
+                    "customer": {
+                        "$ref": "#/components/schemas/CustomerWhereUniqueInput"
+                    },
+                    "discount": {
+                        "type": "number"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/ProductWhereUniqueInput"
+                    },
+                    "quantity": {
+                        "type": "number"
+                    },
+                    "totalPrice": {
+                        "type": "number"
+                    }
+                }
+            },
+            "AddressWhereUniqueInput": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "OrderWhereUniqueInput": {
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string"
+                    }
+                },
+                "required": [
+                    "id"
+                ]
+            },
+            "OrderCreateNestedManyWithoutCustomersInput": {
+                "type": "object",
+                "properties": {
+                    "connect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    }
+                }
+            },
+            "CustomerCreateInput": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/AddressWhereUniqueInput"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "orders": {
+                        "$ref": "#/components/schemas/OrderCreateNestedManyWithoutCustomersInput"
+                    },
+                    "phone": {
+                        "type": "string"
+                    }
+                }
+            },
+            "OrderListRelationFilter": {
+                "type": "object",
+                "properties": {
+                    "every": {
+                        "$ref": "#/components/schemas/OrderWhereInput"
+                    },
+                    "some": {
+                        "$ref": "#/components/schemas/OrderWhereInput"
+                    },
+                    "none": {
+                        "$ref": "#/components/schemas/OrderWhereInput"
+                    }
+                }
+            },
+            "CustomerWhereInput": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/AddressWhereUniqueInput"
+                    },
+                    "email": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "firstName": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "id": {
+                        "$ref": "#/components/schemas/StringFilter"
+                    },
+                    "lastName": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "orders": {
+                        "$ref": "#/components/schemas/OrderListRelationFilter"
+                    },
+                    "phone": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    }
+                }
+            },
+            "OrderUpdateManyWithoutCustomersInput": {
+                "type": "object",
+                "properties": {
+                    "connect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    },
+                    "disconnect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    },
+                    "set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    }
+                }
+            },
+            "CustomerUpdateInput": {
+                "type": "object",
+                "properties": {
+                    "address": {
+                        "$ref": "#/components/schemas/AddressWhereUniqueInput"
+                    },
+                    "email": {
+                        "type": "string"
+                    },
+                    "firstName": {
+                        "type": "string"
+                    },
+                    "lastName": {
+                        "type": "string"
+                    },
+                    "orders": {
+                        "$ref": "#/components/schemas/OrderUpdateManyWithoutCustomersInput"
+                    },
+                    "phone": {
+                        "type": "string"
+                    }
+                }
+            },
+            "CustomerCreateNestedManyWithoutAddressesInput": {
+                "type": "object",
+                "properties": {
+                    "connect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomerWhereUniqueInput"
+                        }
+                    }
+                }
+            },
+            "AddressCreateInput": {
+                "type": "object",
+                "properties": {
+                    "address_1": {
+                        "type": "string"
+                    },
+                    "address_2": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "customers": {
+                        "$ref": "#/components/schemas/CustomerCreateNestedManyWithoutAddressesInput"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "zip": {
+                        "type": "number"
+                    }
+                }
+            },
+            "CustomerListRelationFilter": {
+                "type": "object",
+                "properties": {
+                    "every": {
+                        "$ref": "#/components/schemas/CustomerWhereInput"
+                    },
+                    "some": {
+                        "$ref": "#/components/schemas/CustomerWhereInput"
+                    },
+                    "none": {
+                        "$ref": "#/components/schemas/CustomerWhereInput"
+                    }
+                }
+            },
+            "AddressWhereInput": {
+                "type": "object",
+                "properties": {
+                    "address_1": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "address_2": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "city": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "customers": {
+                        "$ref": "#/components/schemas/CustomerListRelationFilter"
+                    },
+                    "id": {
+                        "$ref": "#/components/schemas/StringFilter"
+                    },
+                    "state": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "zip": {
+                        "$ref": "#/components/schemas/IntNullableFilter"
+                    }
+                }
+            },
+            "CustomerUpdateManyWithoutAddressesInput": {
+                "type": "object",
+                "properties": {
+                    "connect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomerWhereUniqueInput"
+                        }
+                    },
+                    "disconnect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomerWhereUniqueInput"
+                        }
+                    },
+                    "set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/CustomerWhereUniqueInput"
+                        }
+                    }
+                }
+            },
+            "AddressUpdateInput": {
+                "type": "object",
+                "properties": {
+                    "address_1": {
+                        "type": "string"
+                    },
+                    "address_2": {
+                        "type": "string"
+                    },
+                    "city": {
+                        "type": "string"
+                    },
+                    "customers": {
+                        "$ref": "#/components/schemas/CustomerUpdateManyWithoutAddressesInput"
+                    },
+                    "state": {
+                        "type": "string"
+                    },
+                    "zip": {
+                        "type": "number"
+                    }
+                }
+            },
+            "OrderCreateNestedManyWithoutProductsInput": {
+                "type": "object",
+                "properties": {
+                    "connect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    }
+                }
+            },
+            "ProductCreateInput": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "itemPrice": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "orders": {
+                        "$ref": "#/components/schemas/OrderCreateNestedManyWithoutProductsInput"
+                    }
+                }
+            },
+            "ProductWhereInput": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "id": {
+                        "$ref": "#/components/schemas/StringFilter"
+                    },
+                    "itemPrice": {
+                        "$ref": "#/components/schemas/FloatNullableFilter"
+                    },
+                    "name": {
+                        "$ref": "#/components/schemas/StringNullableFilter"
+                    },
+                    "orders": {
+                        "$ref": "#/components/schemas/OrderListRelationFilter"
+                    }
+                }
+            },
+            "OrderUpdateManyWithoutProductsInput": {
+                "type": "object",
+                "properties": {
+                    "connect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    },
+                    "disconnect": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    },
+                    "set": {
+                        "type": "array",
+                        "items": {
+                            "$ref": "#/components/schemas/OrderWhereUniqueInput"
+                        }
+                    }
+                }
+            },
+            "ProductUpdateInput": {
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type": "string"
+                    },
+                    "itemPrice": {
+                        "type": "number"
+                    },
+                    "name": {
+                        "type": "string"
+                    },
+                    "orders": {
+                        "$ref": "#/components/schemas/OrderUpdateManyWithoutProductsInput"
+                    }
+                }
+            }
+        }
+    }
+}
